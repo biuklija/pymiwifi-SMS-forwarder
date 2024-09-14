@@ -22,8 +22,6 @@ Python >= 3.6
 1. Add your router password
 2. Set up your Telegram bot, edit the tokens, set the user/chat ID where you intend to receive the forwarded messages
 3. Adjust timings in the main loop as needed
-4. Remove any function calls you don't need
+4. Remove or add any function calls you (don't) need
 5. If necessary, hardcode the router IP or edit the miwifi.com endpoint in `api.py`
 6. Run `mifwd.py`
-
-``

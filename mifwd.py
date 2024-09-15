@@ -11,8 +11,12 @@ miwifi.login('xxxxxxxxxx') # Your router password
 
 def telegram(message):
 	ssl._create_default_https_context = ssl._create_unverified_context
-	data = urllib.parse.urlencode({'chat_id':'XXXXXXXX', 'text': message, 'parse_mode':'MARKDOWN'} ).encode('ascii') # ChatID - your user ID or Chat ID that's supposed to receive the messages
-	urllib.request.urlopen(url = 'https://api.telegram.org/botYYYYYYYY:ZZZZZZZZZZZZZZZZ/sendMessage', data = data ) # YYYYYYYY - bot ID, ZZZZZ - bot secret token
+	# To get this running: 
+	# 1. create your bot according to https://gist.github.com/nafiesl/4ad622f344cd1dc3bb1ecbe468ff9f8a#create-a-telegram-bot-and-get-a-bot-token
+	# 2. start a chat with your bot
+	# 3. Get you chat ID according to https://gist.github.com/nafiesl/4ad622f344cd1dc3bb1ecbe468ff9f8a#get-chat-id-for-a-private-chat 
+	data = urllib.parse.urlencode({'chat_id':'XXXXXXXX', 'text': message, 'parse_mode':'MARKDOWN'} ).encode('ascii') # XXXXXX - ID of your private chat with the bot (or channel if you need several recipients)
+	urllib.request.urlopen(url = 'https://api.telegram.org/botYYYYYYYY:ZZZZZZZZZZZZZZZZ/sendMessage', data = data ) # YYYYYYYY - bot ID (numbers!), ZZZZZ - bot secret token
 
 def timestamp(content):
 	now = datetime.datetime.now()
